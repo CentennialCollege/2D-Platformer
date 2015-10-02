@@ -19,11 +19,12 @@ public class SimplePlatformController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		this.anim = gameObject.GetComponent<Animator> ();
+		this.rb2d = gameObject.GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		grounded = Physics2D.Linecast(gameObject.GetComponent<Transform>().position, this.groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 	}
 }
